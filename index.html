@@ -2,92 +2,560 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Academic website of Faegheh Seifhashemi, a PhD student and researcher in computer science and artificial intelligence."
+    >
+
     <title>Faegheh Seifhashemi</title>
 
     <style>
+        :root {
+            --primary: #173b68;
+            --secondary: #35689c;
+            --light-blue: #eef5fb;
+            --background: #f7f9fc;
+            --text: #1f2937;
+            --muted: #5f6b7a;
+            --white: #ffffff;
+            --border: #dce5ef;
+            --shadow: 0 10px 30px rgba(23, 59, 104, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
         body {
-            max-width: 850px;
-            margin: 50px auto;
-            padding: 0 20px;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #222;
+            margin: 0;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.7;
         }
 
-        h1, h2 {
-            color: #17365d;
+        a {
+            color: var(--primary);
         }
 
-        nav a {
-            margin-right: 18px;
+        .container {
+            width: min(1050px, 90%);
+            margin: auto;
+        }
+
+        /* Navigation */
+
+        nav {
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            color: var(--primary);
+            font-size: 1.2rem;
+            font-weight: 750;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero */
+
+        .hero {
+            padding: 85px 0 55px;
+        }
+
+        .hero-card {
+            background: linear-gradient(135deg, #ffffff 0%, #eef5fb 100%);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            padding: 55px;
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 38px;
+            align-items: center;
+        }
+
+        .profile-placeholder {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(
+                135deg,
+                var(--primary),
+                var(--secondary)
+            );
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.6rem;
+            font-weight: 750;
+            box-shadow: 0 10px 25px rgba(23, 59, 104, 0.22);
+        }
+
+        .hero h1 {
+            color: var(--primary);
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            line-height: 1.15;
+            margin: 0 0 12px;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 1.15rem;
+            margin: 0 0 18px;
+        }
+
+        .intro {
+            max-width: 720px;
+            margin-bottom: 25px;
+        }
+
+        .social-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 9px;
+            padding: 10px 17px;
+            font-weight: 650;
+            text-decoration: none;
+            transition: 0.2s ease;
+        }
+
+        .button-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .button-outline {
+            background: white;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 18px rgba(23, 59, 104, 0.15);
+        }
+
+        /* Sections */
+
+        section {
+            padding: 35px 0;
+        }
+
+        .section-title {
+            color: var(--primary);
+            font-size: 2rem;
+            margin: 0 0 22px;
+        }
+
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            padding: 30px;
+        }
+
+        .research-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .tag {
+            background: var(--light-blue);
+            border: 1px solid #d4e3f2;
+            border-radius: 30px;
+            color: var(--primary);
+            font-weight: 650;
+            padding: 9px 16px;
         }
 
         .project {
-            margin-bottom: 25px;
+            border-left: 5px solid var(--secondary);
+        }
+
+        .project h3 {
+            color: var(--primary);
+            font-size: 1.35rem;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .project-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        .project-links a {
+            font-weight: 650;
+            text-decoration: none;
+        }
+
+        .publication {
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .publication:last-child {
+            border-bottom: none;
+        }
+
+        .publication-title {
+            color: var(--primary);
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .publication-details {
+            color: var(--muted);
+            margin: 6px 0 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .contact-item {
+            background: var(--light-blue);
+            border-radius: 13px;
+            padding: 20px;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        footer {
+            color: var(--muted);
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        @media (max-width: 750px) {
+            .nav-content {
+                padding: 15px 0;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                gap: 14px;
+            }
+
+            .hero {
+                padding-top: 45px;
+            }
+
+            .hero-card {
+                grid-template-columns: 1fr;
+                padding: 35px 25px;
+                text-align: center;
+            }
+
+            .profile-placeholder {
+                margin: auto;
+            }
+
+            .social-buttons {
+                justify-content: center;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <h1>Faegheh Seifhashemi</h1>
-        <p>PhD Student | Researcher | Computer Science | Artificial Intelligence</p>
 
-        <nav>
-            <a href="#about">About</a>
-            <a href="#research">Research</a>
-            <a href="#publications">Publications</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+    <nav>
+        <div class="container nav-content">
+            <a class="logo" href="#">Faegheh Seifhashemi</a>
 
-    <hr>
-
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-            I am a PhD student and researcher working on vision-language
-            models.
-        </p>
-    </section>
-
-    <section id="research">
-        <h2>Research Interests</h2>
-        <ul>
-            <li>Machine learning</li>
-            <li>Computer Vision</li>
-            
-        </ul>
-    </section>
-
-    <section id="publications">
-        <h2>Publications</h2>
-        <p>...</p>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-
-        <div class="project">
-            <h3>Student Engagement and Emotion Recognition Using Vision-Language Models</h3>
-            <p>
-                Investigating how vision-language models can analyze images and videos
-                to recognize student engagement and emotional states.
-            </p>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#research">Research</a>
+                <a href="#publications">Publications</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
         </div>
-      
-    </section>
+    </nav>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>
-            Email:
-            <a href="mailto:tus54593@temple.edu">
-                tus54593@temple.edu
-            </a>
-        </p>
-    </section>
+    <main>
+
+        <!-- Header -->
+
+        <header class="hero">
+            <div class="container">
+                <div class="hero-card">
+
+                    <div class="profile-placeholder">
+                        FS
+                    </div>
+
+                    <div>
+                        <h1>Faegheh Seifhashemi</h1>
+
+                        <p class="subtitle">
+                            PhD Student and Researcher in Computer Science
+                            and Artificial Intelligence
+                        </p>
+
+                        <p class="intro">
+                            My research focuses on vision-language models,
+                            computer vision, student engagement analysis,
+                            and emotion recognition from images and videos.
+                        </p>
+
+                        <div class="social-buttons">
+
+                            <a
+                                class="button button-primary"
+                                href="PASTE_YOUR_GOOGLE_SCHOLAR_LINK_HERE"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Google Scholar
+                            </a>
+
+                            <a
+                                class="button button-outline"
+                                href="PASTE_YOUR_LINKEDIN_LINK_HERE"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                LinkedIn
+                            </a>
+
+                            <a
+                                class="button button-outline"
+                                href="https://github.com/FSeifhashemi"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                GitHub
+                            </a>
+
+                            <a
+                                class="button button-outline"
+                                href="mailto:tus54593@temple.edu"
+                            >
+                                Email
+                            </a>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <!-- About -->
+
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+
+                <div class="card">
+                    <p>
+                        I am a PhD student and researcher in computer science
+                        and artificial intelligence. My work investigates how
+                        artificial intelligence systems can understand human
+                        behavior, engagement, and emotional states from visual
+                        information.
+                    </p>
+
+                    <p>
+                        
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research -->
+
+        <section id="research">
+            <div class="container">
+                <h2 class="section-title">Research Interests</h2>
+
+                <div class="card">
+                    <div class="research-tags">
+                        <span class="tag">Artificial Intelligence</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Computer Vision</span>
+                        <span class="tag">Vision-Language Models</span>
+                        <span class="tag">Student Engagement</span>
+                        <span class="tag">Emotion Recognition</span>
+                    
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications -->
+
+        <section id="publications">
+            <div class="container">
+                <h2 class="section-title">Publications</h2>
+
+                <div class="card">
+
+                    <div class="publication">
+                        <p class="publication-title">
+                            
+                        </p>
+
+                        <p class="publication-details">
+                            A complete publication list is available on my
+                            Google Scholar profile.
+                        </p>
+                    </div>
+
+                    <!-- Example publication format:
+
+                    <div class="publication">
+                        <p class="publication-title">
+                            Title of Your Research Paper
+                        </p>
+
+                        <p class="publication-details">
+                            Faegheh Seifhashemi, Coauthor Name,
+                            Conference or Journal, 2026
+                        </p>
+                    </div>
+
+                    -->
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+
+                <div class="card project">
+                    <h3>
+                        Student Engagement and Emotion Recognition
+                        Using Vision-Language Models
+                    </h3>
+
+                    <p>
+                        Investigating how vision-language models can analyze
+                        images and videos to recognize student engagement and
+                        emotional states.
+                    </p>
+
+                    <p>
+                        This research explores reliable and interpretable
+                        artificial intelligence methods for understanding
+                        human behavior in educational environments.
+                    </p>
+
+                    <div class="project-links">
+
+                        <!-- Add your repository link when it is available.
+
+                        <a
+                            href="https://github.com/FSeifhashemi/PROJECT-NAME"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            View code
+                        </a>
+
+                        -->
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Contact</h2>
+
+                <div class="card">
+                    <div class="contact-grid">
+
+                        <div class="contact-item">
+                            <strong>Email</strong>
+
+                            <a href="mailto:tus54593@temple.edu">
+                                tus54593@temple.edu
+                            </a>
+                        </div>
+
+                        <div class="contact-item">
+                            <strong>Affiliation</strong>
+                            Temple University
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        © 2026 Faegheh Seifhashemi. Hosted with GitHub Pages.
+    </footer>
+
 </body>
 </html>
